@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
-import { Route, Redirect, BrowserRouter } from 'react-router-dom';
-import { App } from './pages';
+import React from 'react'
+import { Route, Redirect } from 'react-router-dom';
 
-function PrivateRoute ({component: Component, authed, ...rest}) {
+export function PrivateRoute ({component: Component, authed, ...rest}) {
   return (
     <Route
       {...rest}
@@ -13,7 +12,7 @@ function PrivateRoute ({component: Component, authed, ...rest}) {
   )
 }
 
-function PublicRoute ({component: Component, authed, ...rest}) {
+export function PublicRoute ({component: Component, authed, ...rest}) {
   return (
     <Route
       {...rest}
@@ -23,11 +22,3 @@ function PublicRoute ({component: Component, authed, ...rest}) {
     />
   )
 }
-
-export default (
-        <BrowserRouter>
-            <Route path="/" component={App}/>
-            <Route path="/signin" component={App} />
-            <Route path="/signup" component={App} />
-      </BrowserRouter>
-);

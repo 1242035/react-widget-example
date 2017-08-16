@@ -1,10 +1,10 @@
-import
+/*import
 {
 	ENV,
 	PRODUCTION
 }
 from '../config';
-
+*/
 import
 {
 	createStore,

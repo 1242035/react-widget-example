@@ -1,12 +1,13 @@
 import React from 'react';
 import { Component } from 'react';
 import { AppContainer } from '../containers/App';
+import SignInForm from '../components/SignInForm';
 
-export class App extends Component {
+export class Login extends Component {
   render() {
     return (
     	<AppContainer>
-            { this.props.children }
+            <SignInForm/>
     	</AppContainer>
     );
   }

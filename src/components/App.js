@@ -13,7 +13,6 @@ export default class App extends Component
 
 	render()
 	{
-		return ( <div>aasdfasd </div>
-		);
+		return ( <div>{ this.props.children }</div>);
 	}
 }
