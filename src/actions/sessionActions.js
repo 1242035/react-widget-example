@@ -7,7 +7,9 @@ export const login = (user, history) => {
             .then(response => {
                 sessionService.saveSession({
                         auth_token:response.data.oauth_token,
-                        auth_token_secret:response.data.oauth_token_secret
+                        auth_token_secret:response.data.oauth_token_secret,
+                        expires_in:response.data.expires_in,
+                        expires_at:response.data.expires_at
                     })
                     .then(() => {
                         sessionService.saveUser(response.data)

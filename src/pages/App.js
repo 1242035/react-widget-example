@@ -5,12 +5,13 @@ import { connect } from 'react-redux';
 import Home from './Home';
 import Login from './Login';
 import PrivateRoute from './PrivateRoute';
+import createBrowserHistory from '../history';
 
 const App = ({ authenticated, checked }) => (
     <Router>
         { checked &&
             <div className="container-app">
-                <PrivateRoute exact path="/" component={Home} authenticated={authenticated}/>
+                <PrivateRoute exact path="/" component={Home} authenticated={authenticated} history={createBrowserHistory}/>
                 <Route path="/login" component={Login}/>
             </div>
         }

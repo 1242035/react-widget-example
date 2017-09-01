@@ -22,7 +22,12 @@ const validate = values => {
     return warnings;
   }
   
-const renderField = ({ input, label, type, meta: { touched, error, warning }}) => (
+  const renderField = ({
+    input,
+    label,
+    type,
+    meta: { touched, error, warning }
+  }) =>
     <div className={"form-group"+ (error && touched ? ' has-error': '') }>
         <label className="form-control-label col-md-2">{label}</label>
         <div className="col-md-10">
@@ -30,9 +35,8 @@ const renderField = ({ input, label, type, meta: { touched, error, warning }}) =
             {touched && ((error && <span className="help-block">{error}</span>) || (warning &&<span className="help-block">{warning}</span>))}
         </div>
     </div>
-);
 
-let SignInForm = props => {
+let BillingForm = props => {
     const { handleSubmit, submitting } = props
     return (
         <form onSubmit={ handleSubmit }>
@@ -43,14 +47,13 @@ let SignInForm = props => {
                     <button disabled={submitting} type="submit" className="btn btn-primary pull-right">Submit</button>
                 </div>
             </div>
-            
         </form>
     )
 }
 
-SignInForm = reduxForm({
-  form: 'signin',
+BillingForm = reduxForm({
+  form: 'billing',
   validate,
   warn
-})(SignInForm);
-export default SignInForm;
+})(BillingForm);
+export default BillingForm;
