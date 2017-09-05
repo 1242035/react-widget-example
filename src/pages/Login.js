@@ -2,8 +2,7 @@ import React, { Component, PropTypes, history } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import * as sessionActions from '../actions/sessionActions';
-//import Input from './Input';
+import * as sessionActions from '../actions/auth';
 import SignInForm from '../form/signin';
 
 class Login extends Component {
@@ -22,7 +21,6 @@ class Login extends Component {
     }
 
     onSubmit(values) {
-        console.log( this.props );
         const { user } = this.state;
         const { login } = this.props.actions;
         const { history } = this.props;

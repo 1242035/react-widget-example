@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -23,23 +24,25 @@ const Home = ({ actions: { logout }, user, authenticated }) => (
 class Home extends Component {
 
     componentDidMount() {
-        
+        console.log( this.props );
     }
     
     componentWillReceiveProps(nextProps) {
-        
+        console.log( nextProps);
     }
 
     render() {
-        return <div><h3>Welcome {this.props.user.email}</h3><pre>{this.props.actions}</pre></div>
+        return <div><h3>Welcome {this.props.user.email}</h3><div>{this.props.children}</div></div>
     }
 }
-const { object, bool } = PropTypes;
+
+const { object, bool, element } = PropTypes;
 
 Home.propTypes = {
     actions: object.isRequired,
     user: object.isRequired,
-    authenticated: bool.isRequired
+    authenticated: bool.isRequired,
+    children: element.isRequired
 };
 
 const mapState = (state) => ({

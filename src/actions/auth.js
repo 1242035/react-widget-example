@@ -1,5 +1,5 @@
 import { sessionService } from 'redux-react-session';
-import * as sessionApi from '../api/sessionApi';
+import * as sessionApi from '../api/auth';
 
 export const login = (user, history) => {
     return () => {
